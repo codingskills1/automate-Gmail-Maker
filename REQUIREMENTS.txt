@@ -1,0 +1,5 @@
+python 
+tkinter --> is installed by default in python 3 and upper 
+selenium --> for installing --> pip install selenium 
+webdriver of your browser for installing go to internet and type webdriver for chrome or anything
+that is your browser
