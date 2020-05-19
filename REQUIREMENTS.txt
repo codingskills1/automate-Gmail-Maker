@@ -3,3 +3,8 @@ tkinter --> is installed by default in python 3 and upper
 selenium --> for installing --> pip install selenium 
 webdriver of your browser for installing go to internet and type webdriver for chrome or anything
 that is your browser
+
+
+HOW TO USE IT:
+it's easy just install the tools that I said to you and don't forget to put your webdriver
+into this folder near the main file and the open automate gmail maker app

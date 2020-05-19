@@ -18,7 +18,7 @@ window.resizable(width = None, height = None)
 
 canvas = Canvas(window, width = 70, height = 70)
 canvas.place(x = 20, y = 30)
-img = ImageTk.PhotoImage(Image.open("Google.png")) 
+img = ImageTk.PhotoImage(Image.open("gmail.png")) 
 canvas.create_image(0, 0, anchor=NW, image=img) 
 
 # Labels
@@ -44,9 +44,13 @@ under_lbl.place(x = 100, y = 150)
 under_pass = Label(window, text = "Password")
 under_pass.place(x = 100, y = 260)
 
+gmail_label = tk.Label(window, text = "Gmail Maker", font=("Arial Bold", 20), fg = "black")
+gmail_label.place(x = 100, y = 30)
+
 # Entries 
 firstname_entry = Entry(window, width = 25)
 firstname_entry.place(x = 100, y = 130)
+firstname_entry.focus()
 
 lastname_entry = Entry(window, width = 25)
 lastname_entry.place(x = 300 , y = 130)
