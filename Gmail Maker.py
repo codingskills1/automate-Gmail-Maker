@@ -4,7 +4,8 @@ from tkinter import *
 from tkinter.ttk import *
 from PIL import ImageTk,Image 
 import tkinter as tk 
-from tkinter import messagebox 
+from tkinter import messagebox
+from tkinter.ttk import Progressbar
 import time 
 
 # Window Infomation 
@@ -106,7 +107,7 @@ def clicked():
 	if username_entry.get() == "":
 		messagebox.showerror("error", "Enter Your UserName")
 
-	elif len(username_entry.get()) < 2:
+	elif len(username_entry.get()) < 12:
 		messagebox.showerror("error", "Enter Valid UserName")
 
 	elif len(username_entry.get()) > 40:
@@ -129,92 +130,44 @@ def clicked():
 	if pass_entry.get() != confirm_entry.get():
 		messagebox.showerror("error", "Password's doesn't mach")
 
-
+	if confirm_entry.get() == "":
+		messagebox.showerror("error", "Enter Your Password Again(Confirm Your Password)")
 	# Main 
 	else:
-				# First Name Validation
-		if firstname_entry.get() == "":
-			messagebox.showerror("error","Enter Your Name")
-			btn = tk.Button(window, text = "Next", fg = "blue", command = clicked)
-			btn.place(x = 400, y = 280)
-
-		elif len(firstname_entry.get()) < 2:
-			messagebox.showerror("error","Enter Valid Name")
-
-		elif len(firstname_entry.get()) > 20:
-			messagebox.showerror("error","Your Name Is Not Valid")
-
-		# LastName Validation
-		if lastname_entry.get() == "":
-			messagebox.showerror("error", "Enter Your LastName")
-
-		elif len(lastname_entry.get()) < 2:
-			messagebox.showerror("error", "Enter Valid LastName")
-
-		elif len(lastname_entry.get()) > 20:
-			messagebox.showerror("error", "Your LastName Is Too Long")
-
-		# UserName Validation 
-		if username_entry.get() == "":
-			messagebox.showerror("error", "Enter Your UserName")
-
-		elif len(username_entry.get()) < 2:
-			messagebox.showerror("error", "Enter Valid UserName")
-
-		elif len(username_entry.get()) > 40:
-			messagebox.showerror("error", "Your UserName Is Not Valid")
-
-		elif "@gmail.com" not in username_entry.get() and "@email.com" not in username_entry.get():
-			messagebox.showerror("error", "Enter Valid UserName ")
-
-		# Password Validation
-		if pass_entry.get() == "":
-			messagebox.showerror("error", "Enter Your Password")
-
-		elif len(pass_entry.get()) < 8:
-			messagebox.showerror("error", "Your Password at least should be 8")
-
-		elif len(pass_entry.get()) > 100:
-			messagebox.showerror("error", "Maximum password characters is 100")
-
-		# Confirm Password Validation 
-		if pass_entry.get() != confirm_entry.get():
-			messagebox.showerror("error", "Password's doesn't mach")
-
-
-		messagebox.showinfo("MohammadHossein says:", "Your Account Have Been Created Successfully wait for selenium to enter all of the information to gmail.com")
+		if firstname_entry.get() != "" and lastname_entry.get() != "" and username_entry.get() != "" and pass_entry.get() != "" and confirm_entry.get() != "" and len(firstname_entry.get()) > 2 and len(username_entry.get()) > 12 and len(pass_entry.get()) > 8 and len(username_entry.get()) < 30 and len(firstname_entry.get()) < 20 and len(pass_entry.get()) < 100:
+			messagebox.showinfo("MohammadHossein says:", "Your Account Have Been Created Successfully wait for selenium to enter all of the information to gmail.com")
 			
-		driver = webdriver.Chrome()
+			driver = webdriver.Chrome()
 
-		driver.get("https://accounts.google.com/SignUp")
+			driver.get("https://accounts.google.com/SignUp")
 
-		elem = driver.find_element_by_name("firstName")
+			elem = driver.find_element_by_name("firstName")
 
-		elem_lastname = driver.find_element_by_name("lastName")
+			elem_lastname = driver.find_element_by_name("lastName")
 
-		elem_user = driver.find_element_by_name("Username")
+			elem_user = driver.find_element_by_name("Username")
 
-		elem_password = driver.find_element_by_name("Passwd")
+			elem_password = driver.find_element_by_name("Passwd")
 
-		elem_confirm = driver.find_element_by_name("ConfirmPasswd")
+			elem_confirm = driver.find_element_by_name("ConfirmPasswd")
 
 
-		elem.clear()
+			elem.clear()
 
-		elem_lastname.clear()
+			elem_lastname.clear()
 
-		elem_user.clear()
+			elem_user.clear()
 
-		elem_password.clear()
+			elem_password.clear()
 
-		elem_confirm.clear()
+			elem_confirm.clear()
 
-		elem.send_keys(firstname_entry.get())
-		elem_lastname.send_keys(lastname_entry.get())
-		elem_user.send_keys(username_entry.get())
-		elem_password.send_keys(pass_entry.get())
-		elem_confirm.send_keys(confirm_entry.get())
-		elem_confirm.send_keys(Keys.RETURN)
+			elem.send_keys(firstname_entry.get())
+			elem_lastname.send_keys(lastname_entry.get())
+			elem_user.send_keys(username_entry.get())
+			elem_password.send_keys(pass_entry.get())
+			elem_confirm.send_keys(confirm_entry.get())
+			elem_confirm.send_keys(Keys.RETURN)
 
 
 
